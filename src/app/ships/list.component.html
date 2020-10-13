@@ -1,0 +1,26 @@
+﻿<h1>Ships</h1>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <p class="lead">Type a ship to search...</p>
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Ship" aria-label="Ship"
+              aria-describedby="button-addon2" name="shipToFind"
+              [(ngModel)]="shipToFind" 
+              (keyup)="search(shipToFind)"
+              (keypress)="search(shipToFind)">
+          <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" (click)="search(shipToFind)">
+                  <mat-icon aria-hidden="false">search</mat-icon>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="form-row">
+  <mat-card class="example-card" *ngFor="let ship of ships">
+    <mat-card-header></mat-card-header>
+    <img mat-card-image routerLink="detail/{{ ship.shipId }}" src="https://starwars-visualguide.com/assets/img/starships/{{ship.shipId}}.jpg" onerror="this.onerror=null;this.src='/assets/img/default.jpeg';" alt="{{ ship.name }}">
+  </mat-card>
+</div>

@@ -1,0 +1,17 @@
+﻿<mat-card class="example-card game-detail">
+    <mat-card-header>
+      <mat-card-title>{{ ship.name }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://starwars-visualguide.com/assets/img/starships/{{ship.shipId}}.jpg" onerror="this.onerror=null;this.src='/assets/img/default.jpeg';" alt="{{ ship.name }}">
+    <mat-card-content>
+      <p>Manufacturer: {{ ship.manufacturer }}</p>
+      <p>Model: {{ ship.model }}</p>
+      <p>Consumables: {{ ship.consumables }}</p>
+      <p>Class: {{ ship.starship_class }}</p>
+      <p>Passengers: {{ ship.passengers }}</p>
+      <p>Crew: {{ ship.crew }}</p>
+      <p>Speed: {{ ship.max_atmosphering_speed }}</p>
+      <p>Rating: {{ ship.hyperdrive_rating }}</p>
+    </mat-card-content>
+  </mat-card>
+  <a routerLink="/ships" class="btn btn-link">Back</a>

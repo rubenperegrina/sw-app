@@ -1,0 +1,30 @@
+﻿<mat-toolbar color="primary" *ngIf="user">
+  <mat-toolbar-row>
+    <button mat-icon-button color="warn" routerLink="/">
+      <mat-icon color="warn" routerLink="/home">home</mat-icon>
+    </button>
+    <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+    <span class="menu-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.toggle()" [routerLinkActiveOptions]="{exact: true}">Home </a>
+      <a mat-list-item routerLink="/ships" (click)="sidenav.toggle()" routerLinkActive="active">Ships </a>
+      <a mat-list-item routerLink="/users" (click)="sidenav.toggle()" routerLinkActive="active">Users </a>
+      <a mat-list-item (click)="logout(); sidenav.toggle()">Logout </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <alert></alert>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
